@@ -1,0 +1,105 @@
+
+$containergrey-background : #cdc9c9;
+$containerlgrey-background: #fdfdfd;
+$container-height: 20rem;
+$container-width: 25rem;
+$border-round: 25px;
+$centerdiv: auto;
+$flexbox: flex;
+
+
+%container{
+    display: $flexbox;
+    flex-direction: column;
+    border-radius: #{$border-round};
+    height: #{$container-height};
+    width: #{$container-width};
+}
+
+.mainContainer{
+    margin-top: 3.5rem;
+}
+
+.imageHeader{
+    padding: 0;
+    margin-left: 2.3rem;
+    height:18rem;
+    width:20rem;
+}
+
+.header{
+    @extend %container;
+
+    margin: $centerdiv;
+    height: 43rem;
+    background-color: #{$containergrey-background};
+}
+
+.inputgroup{
+    @extend %container;
+
+    margin-left: 1.5rem;
+    width:22rem;
+    background-color: #{$containerlgrey-background};
+}
+
+.inputgroup > div{
+    display: #{$flexbox};
+    flex-direction: column;
+    margin: 1rem;
+}
+
+div>label{
+    margin-left: 0rem;
+    margin-bottom: 1rem;
+}
+
+%label
+{
+    padding: 0;
+    margin:0;
+}
+
+%font{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 50px;
+}
+
+.inputlabel{
+    @extend %font;
+    @extend %label;   
+}
+
+.textbox{
+    @extend %font;
+
+    color:#494747;
+    height: 2rem;
+    border:none;
+    border-bottom: 2px solid rgb(62, 61, 61);
+    outline: none;
+}
+.mailError,.userNameError,.passwordError{
+    @extend %label;
+    color: salmon;
+}
+
+::placeholder{
+    font-size:14px;
+    color: rgb(152, 151, 151);
+}
+
+.buttonBlack{
+    @extend %font;
+
+    border-radius: 1em;
+    height: 3rem;
+    color:white;
+    background-color: black;
+}
+
+
+
+
+

@@ -1,0 +1,11 @@
+$backgroundImage: url('../src/Components/Images/theme.jpg');
+body {
+  /*background-color: rgb(80, 77, 77);*/
+  background-image: #{$backgroundImage};
+ background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
