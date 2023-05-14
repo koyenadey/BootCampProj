@@ -58,16 +58,14 @@ const Register = () => {
             password: enteredPassword
         };
         
-        try{
+      
           const response = submitData(userRegistrationData);
           if(response.status === 201)
-            alert("User Created!");
+            console.log("User Created!");
           if(response.status=== 400)  
-            throw new Error();
-        } catch (ex) {
-            if(ex.response && ex.response.status === 400)
-                setUserNameError("The user already exists");
-        }                                            
+            console.log("The user already exists");
+            
+                                                  
     }
    const submitData = async (data) =>{
     console.log('Inside submit data');
@@ -87,7 +85,7 @@ const Register = () => {
       <div className={Classes.header}>
         <img
           className={Classes.imageHeader}
-          src={require("/Users/koyena/Desktop/React/TaskManagementSystem/taskmanagementsystem/src/Components/Images/Register.png")}
+          src={require("./Images/Register.png")}
           alt="hey welcome"
         />
         <div className={Classes.inputgroup}>
