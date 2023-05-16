@@ -69,10 +69,10 @@ const Register = () => {
     }
    const submitData = async (data) =>{
     console.log('Inside submit data');
-    const response = await fetch('http://192.168.1.103:7068/api/User',{
+    const response = await fetch('https://localhost:44341/api/User',{
       method: 'POST',
       body: JSON.stringify(data),
-      headers: {
+      headers:{
         'Content-Type': 'application/json'
       }
     });
