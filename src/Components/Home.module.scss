@@ -1,0 +1,103 @@
+$roundedCorners: 0.5rem;
+$taskColorSalmon: salmon;
+$taskColorYellow: rgb(238, 226, 60);
+$taskColorGreen: Yellowgreen;
+
+.mainContainer{
+  display: flex; 
+  height: 50rem;
+  background-color: white;
+}
+
+.NavBar{
+  position: relative;
+  height: 50rem;
+  width: 15rem;
+  margin: 0.3rem;
+  border-radius: $roundedCorners;
+  background-color: #024b18;
+  box-shadow: #326732 0px 3px 8px;
+}
+
+.mainContainer > div{
+  margin: 0.3rem;
+  border-radius: $roundedCorners;
+}
+
+.content{
+  width: 100%;
+  height: 43rem;
+}
+
+.header{
+  //border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: $roundedCorners;
+  padding: 0.5rem;
+}
+
+h2,h3{
+  padding:0;
+  margin: 0.5rem 0.5rem;
+}
+
+h3{
+  color:grey;
+}
+
+.taskContent{
+  //border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 43rem;
+  border-radius: $roundedCorners;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.taskColorRed{
+  background-color: $taskColorSalmon;
+}
+
+.taskColorYellow{
+  background-color: $taskColorYellow;
+}
+
+.taskColorGreen{
+  background-color: $taskColorGreen;
+}
+
+.tasks{
+  display:flex;
+  //border: 1px solid rgba(190, 192, 188, 0.842);
+  background-color: rgba(245, 245, 245, 0.822);
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 0.5rem 0;
+}
+
+.tasks:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.tasks > td{
+  padding: 0.5rem;
+  width: 12rem; 
+}
+
+.taskContainer{
+  width:100%;
+  //border: 1px solid red;
+}
+
+.iconsEditDel{
+  display: flex;
+  justify-content: flex-end;
+  //width:50%;
+  //border:1px solid black;
+}
+
+.iconDel,.iconEdit{
+  width: 4rem;
+  //box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border:0px solid gainsboro;
+}

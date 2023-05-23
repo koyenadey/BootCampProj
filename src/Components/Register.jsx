@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Classes from "./Register.module.scss";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [emailError,setEmailError] = useState(undefined);
   const [username, setUserName] = useState('');
@@ -59,13 +61,7 @@ const Register = () => {
         };
         
       
-          const response = submitData(userRegistrationData);
-          if(response.status === 201)
-            console.log("User Created!");
-          if(response.status=== 400)  
-            console.log("The user already exists");
-            
-                                                  
+          submitData(userRegistrationData);                                                      
     }
    const submitData = async (data) =>{
     console.log('Inside submit data');
@@ -77,7 +73,12 @@ const Register = () => {
       }
     });
     console.log('Response Object',response);
-     return response;
+    if(response.status === 201){
+      console.log("User Created!");
+      navigate("/login");
+    }
+    if(response.status === 400)  
+      console.log("The user already exists");
    } 
 
   return (
@@ -137,10 +138,11 @@ const Register = () => {
             />
             {passwordError && <label className={Classes.passwordError}>{passwordError}</label>}
           </div>
-          <div className="buttons">
+          <div>
             <button className={Classes.buttonBlack} type="submit">
               Register
             </button>
+            <Link className={Classes.loginHereLink} to="/login">Login here</Link>
           </div>
         </div>
       </div>

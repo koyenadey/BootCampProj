@@ -1,8 +1,8 @@
 
-$containergrey-background : #cdc9c9;
+$containergrey-background : #f2ba67;
 $containerlgrey-background: #fdfdfd;
-$container-height: 20rem;
-$container-width: 25rem;
+$container-height: 28rem;
+$container-width: 40rem;
 $border-round: 25px;
 $centerdiv: auto;
 $flexbox: flex;
@@ -17,29 +17,29 @@ $flexbox: flex;
 }
 
 .mainContainer{
-    margin-top: 3.5rem;
+    margin-top: 5rem;
 }
 
 .imageHeader{
     padding: 0;
-    margin-left: 2.3rem;
-    height:18rem;
-    width:20rem;
+    margin-left: 8rem;
+    height:20rem;
+    width:25rem;
 }
 
 .header{
     @extend %container;
 
     margin: $centerdiv;
-    height: 43rem;
+    height: 50rem;
     background-color: #{$containergrey-background};
 }
 
 .inputgroup{
     @extend %container;
 
-    margin-left: 1.5rem;
-    width:22rem;
+    margin-left: 5rem;
+    width:30rem;
     background-color: #{$containerlgrey-background};
 }
 
@@ -82,11 +82,13 @@ div>label{
 }
 .mailError,.userNameError,.passwordError{
     @extend %label;
+
+    font-weight: bolder;
     color: salmon;
 }
 
 ::placeholder{
-    font-size:14px;
+    font-size: 14px;
     color: rgb(152, 151, 151);
 }
 
@@ -94,10 +96,21 @@ div>label{
     @extend %font;
 
     border-radius: 1em;
+    margin: 2rem;
     height: 3rem;
     color:white;
     background-color: black;
 }
+
+.loginHereLink{
+    
+    @extend %font;
+    
+    text-decoration: none;
+    color: rgb(73, 68, 68);
+    text-align: right;
+}
+
 
 
 

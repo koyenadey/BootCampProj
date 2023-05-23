@@ -1,0 +1,27 @@
+.card{  
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  height: 20rem;
+  width:20rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  background-color: salmon;
+}
+
+.card > label{
+  font-size:medium;
+  font-weight: bold;
+  width:100%;
+}
+
+.card > button{
+  width: 20%;
+  margin: 3rem;
+}
+
+.message{
+  padding: 2rem;
+  margin-top: 5rem;
+}

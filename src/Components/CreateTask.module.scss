@@ -1,0 +1,96 @@
+$controlWidth: 100%;
+$greyBorder:1px solid #b3b3b3;
+$roundedCorners: 1.3rem;
+$inputFrontSpace: 0.3rem 1rem;
+
+%font{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #595959;
+}
+
+h1{
+  @extend %font;
+  font-family: cursive;
+  margin-left: 2.2rem;
+  padding:0;
+  font-size: 2.5rem;
+}
+
+.mainContainer{
+  width:50%;
+  height: 100%;
+  margin: auto;
+  padding: 2.8rem;
+  background-color:#cccccc;
+  border-radius: 1rem;
+}
+
+.priority,.category,.status,.taskname,.taskDesc,.deadline{
+  margin: 0rem 3.1rem;
+  display:flex;
+  flex-direction: column;
+  width: 90%;
+  padding:0;
+}
+
+.Desc{
+  @extend %font;
+
+  height: 8rem;
+  width: 96%;
+  border-radius: $roundedCorners;
+  border: $greyBorder;
+  padding: $inputFrontSpace;
+  font-size: 1.1rem;
+
+}
+
+.priorityDdl,.categoryDdl,.statusDdl,.Name,.targetDate{
+
+  @extend %font;
+
+  font-size: 1.1rem;
+  color:#858181;
+  height: 3rem;
+  border-radius: $roundedCorners;
+  border: $greyBorder;
+  padding: $inputFrontSpace;
+}
+
+.create{
+  padding: 1rem;
+  width: 60%;
+  margin: 2rem 11rem;
+  border-radius: $roundedCorners;
+  background-color:saddlebrown;
+  color:whitesmoke;
+  border: 0;
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+
+
+.labels
+{
+  @extend %font;
+
+  margin-top: 1rem;
+  
+}
+
+.priorityError{
+
+  @extend %font;
+
+  color: rgb(236, 53, 33);
+  font-size: 1.13rem;
+  margin-left: 0.5rem;
+}
+
+.spanPriority{
+  font-size: 1.3rem;
+  color: rgb(236, 53, 33);
+}

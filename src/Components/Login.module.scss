@@ -1,5 +1,5 @@
 
-$containergrey-background : #cdc9c9;
+$containergrey-background : #f2ba67 /*#cdc9c9*/;
 $containerlgrey-background: #fdfdfd;
 $container-height: 20rem;
 $container-width: 25rem;
@@ -96,7 +96,17 @@ div>label{
     border-radius: 1em;
     height: 3rem;
     color:white;
-    background-color: black;
+    background-color: #554006;
+}
+
+.registerHereLink{
+    
+    @extend %font;
+    
+    text-decoration: none;
+    color: rgb(73, 68, 68);
+    margin: 1rem;
+    text-align: right;
 }
 
 

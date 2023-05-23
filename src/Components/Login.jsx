@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { getToken } from './Utils/Token';
 import Classes from './Login.module.scss';
+
 
 const Login = (props) => {
 
@@ -67,9 +68,9 @@ const Login = (props) => {
     setEmailError("The User does not exist");
   else
   {
-    const userName =  getToken(jwt);
+    //const userName =  getToken(jwt);
     localStorage.setItem('token',jwt);
-    navigate("/",{state:userName});
+    navigate("/");
   } 
 } 
 
@@ -78,7 +79,7 @@ const Login = (props) => {
       <div className={Classes.header}>
         <img
           className={Classes.imageHeader}
-          src={require("./Images/Register.png")}
+          src={require("./Images/Login.png")}
           alt="hey welcome"
         />
         <div className={Classes.inputgroup}>
@@ -118,6 +119,7 @@ const Login = (props) => {
             <button className={Classes.buttonBlack} type="submit">
               Login
             </button>
+            <Link className={Classes.registerHereLink} to="/register">Register here</Link>
           </div>
         </div>
       </div>
