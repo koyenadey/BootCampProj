@@ -1,8 +1,8 @@
 
 $containergrey-background : #f2ba67 /*#cdc9c9*/;
 $containerlgrey-background: #fdfdfd;
-$container-height: 20rem;
-$container-width: 25rem;
+$container-height: 28rem;
+$container-width: 40rem;
 $border-round: 25px;
 $centerdiv: auto;
 $flexbox: flex;
@@ -22,24 +22,24 @@ $flexbox: flex;
 
 .imageHeader{
     padding: 0;
-    margin-left: 2.3rem;
-    height:18rem;
-    width:20rem;
+    margin-left: 8rem;
+    height:20rem;
+    width:25rem;
 }
 
 .header{
     @extend %container;
 
     margin: $centerdiv;
-    height: 43rem;
+    height: 50rem;
     background-color: #{$containergrey-background};
 }
 
 .inputgroup{
     @extend %container;
 
-    margin-left: 1.5rem;
-    width:22rem;
+    margin-left: 5rem;
+    width: 30rem;
     background-color: #{$containerlgrey-background};
 }
 
@@ -94,9 +94,10 @@ div>label{
     @extend %font;
 
     border-radius: 1em;
+    margin-top: 3rem;
     height: 3rem;
     color:white;
-    background-color: #554006;
+    background-color: #0f0b01;
 }
 
 .registerHereLink{

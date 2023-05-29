@@ -21,19 +21,30 @@ const CreateTask = (props) => {
   const [taskDesc, setDesc] = useState("");
 
   const [taskStatus, setTaskStatus] = useState("Choose the status");
+  const [statusError, setStatusError] = useState(undefined);
 
-  const [taskTargetDate, setTaskTargetDate] = useState(new Date());
+  const [taskTargetDate, setTaskTargetDate] = useState('');
   const [targetDateError, setTargetDateError] = useState(undefined);
 
   const [taskModifiedDate, setTaskModifiedDate] = useState(new Date().toJSON());
 
   const [taskCreatedDate, setTaskCreatedDate] = useState(new Date().toJSON());
 
-  const currentUserId = props.currentUser.id;
+  let currentUserId;
+  //console.log("Current User In Create Task", currentUserId);
+
   const isEdit = props.isEdit;
- 
-  const currentTaskId = location.state;
-  console.log(currentTaskId);
+  let currentTaskId;
+  if(isEdit)
+  {
+    currentTaskId = location.state.currentTask;
+    currentUserId = location.state.currentUser;
+    console.log("Task Current",currentTaskId);
+  }
+   else{
+     currentUserId = location.state.currentUser;
+     console.log("Inside use effect of create task",currentUserId);
+   }
 
   useEffect(()=>{
     //console.log("In Create Task",data);
@@ -65,7 +76,7 @@ const CreateTask = (props) => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    console.log(isEdit);
+    console.log("Value of is Edit",isEdit);
 
     var endPoint = isEdit?"UpdateTask":"CreateTask";
 
@@ -82,7 +93,7 @@ const CreateTask = (props) => {
       TaskModifiedDate: taskTargetDate, 
     };
 
-    console.log(task);
+    console.log("Task CreateTask in Create Task",task);
     
     const options = {
       method: isEdit?"PUT":"POST",
@@ -97,7 +108,7 @@ const CreateTask = (props) => {
       options
     );
 
-    if(response.status == 200)
+    if(response.status === 200)
     {
       //const data = await response.json();
       navigate("/");
@@ -117,10 +128,26 @@ const CreateTask = (props) => {
     setPriority(target.value);
   };
 
+  const validateCategory = () =>{
+    if(category === "Choose a category")
+      setCategoryError("Please choose a valid option from the dropdown")
+    else{
+      setCategoryError(undefined);
+    }
+  };
   const categoryChangeHandler = ({ target }) => {
     setCategory(target.value);
   };
 
+  const validateName = () =>{
+    if(taskName.trim() ==="")
+      setTaskNameError("Please type a taskname");
+    else if(taskName.length < 3)
+      setTaskNameError("The task name must be atleast 3 charecters long");
+    else{
+      setTaskNameError(undefined);
+    }
+  };
   const nameChangeHandler = ({ target }) => {
     setTaskName(target.value);
   };
@@ -129,10 +156,23 @@ const CreateTask = (props) => {
     setDesc(target.value);
   };
 
+  const validateStatus = () =>{
+    if(taskStatus === "Choose the status")
+      setStatusError("Please choose a valid option from the dropdown")
+    else{
+      setStatusError(undefined);
+    }
+  };
   const statusChangeHandler = ({ target }) => {
     setTaskStatus(target.value);
   };
 
+  const validateTargetgetDate = () =>{
+    if(taskTargetDate === ''){
+      setTargetDateError("Please select a valid date");
+    }
+    else setTargetDateError(undefined);
+  };
   const targetDateChangeHandler = ({ target }) => {
     setTaskTargetDate(target.value);
   };
@@ -144,7 +184,7 @@ const CreateTask = (props) => {
         <label className={Classes.labels} htmlFor="priority">
           Priority{" "}
           {priorityIsMandatory && (
-            <span className={Classes.spanPriority} id="spanPriority">
+            <span className={Classes.spanError} id="spanPriority">
               *
             </span>
           )}
@@ -164,7 +204,7 @@ const CreateTask = (props) => {
           <option value="p3">P3</option>
         </select>
         {priorityError && (
-          <label id="priorityError" className={Classes.priorityError}>
+          <label id="priorityError" className={Classes.Error}>
             {priorityError}
           </label>
         )}
@@ -178,6 +218,7 @@ const CreateTask = (props) => {
           id="category"
           value={category}
           onChange={categoryChangeHandler}
+          onBlur={validateCategory}
         >
           <option disabled hidden>
             Choose a category
@@ -187,6 +228,7 @@ const CreateTask = (props) => {
           <option value="work">Work</option>
           <option value="official">Official</option>
         </select>
+        {categoryError && <label className={Classes.Error}>{categoryError}</label>}
       </div>
       <div className={Classes.taskname}>
         <label className={Classes.labels} htmlFor="taskName">
@@ -197,12 +239,13 @@ const CreateTask = (props) => {
           placeholder="Task title"
           type="text"
           maxLength={30}
-          minLength={10}
           name="taskName"
           id="taskName"
           value={taskName}
           onChange={nameChangeHandler}
+          onBlur={validateName}
         />
+        {taskNameError && <label className={Classes.Error}>{taskNameError}</label>}
       </div>
       <div className={Classes.taskDesc}>
         <label className={Classes.labels} htmlFor="taskDesc">
@@ -211,7 +254,7 @@ const CreateTask = (props) => {
         <textarea
           className={Classes.Desc}
           rows={4}
-          cols={10}
+          cols={4}
           name="taskDesc"
           id="taskDesc"
           value={taskDesc}
@@ -225,17 +268,20 @@ const CreateTask = (props) => {
           id="status"
           value={taskStatus}
           onChange={statusChangeHandler}
+          onBlur={validateStatus}
         >
           <option disabled hidden>
             Choose the status
           </option>
           <option value="InProgress">In Progress</option>
           <option value="Started">Started</option>
+          {isEdit && <option value="Completed">Completed</option>}
         </select>
+        {statusError && <label className={Classes.Error}>{statusError}</label>}
       </div>
       <div className={Classes.deadline}>
         <label className={Classes.labels} htmlFor="targetDate">
-          DeadLine
+          Reminder For
         </label>
         <input
           className={Classes.targetDate}
@@ -244,7 +290,9 @@ const CreateTask = (props) => {
           id="targetDate"
           value={taskTargetDate}
           onChange={targetDateChangeHandler}
+          onBlur={validateTargetgetDate}
         />
+        {targetDateError && <label className={Classes.Error}>{targetDateError}</label>}
       </div>
       <div>
         <button className={Classes.create} type="submit">

@@ -1,0 +1,17 @@
+.taskContainer{
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tasksToday{
+  background-color: rgba(150, 199, 245, 0.945);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.contentStyle{
+  font-weight: bold;
+  margin-right: 2rem;
+}

@@ -9,7 +9,7 @@ $leftNavBar: 14rem;
   background-color: #024b18;
 }
 
-ul{
+.navBarUL{
   padding:0;
   list-style: none;
   display: flex;
@@ -19,27 +19,27 @@ ul{
   border-radius: 0.5rem;
 }
 
-ul > li{
+.navBarUL > li{
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 10px;
+  &
+  :hover{
 
+    background-color: #326732;
+    border-color:#326732;
+    border-radius: 0.4rem;
+    color: whitesmoke;
+  }
 }
 
-li:hover{
-  background-color: #326732;
-  
-  border-color:#326732;
-  border-radius: 0.4rem;
-  color: whitesmoke;
-}
+
 
 .link{
-  display: inline-block;
-  padding: 7px;
-  text-decoration: $noUnderLine;
-  color: #cccccc;
-
+  background-color: #024b18;
+  color:#cccccc;
+  font-size: medium;
+  border: 0;
 
   &:focus, &:visited, &:link, &:active {
     text-decoration: $noUnderLine;
@@ -47,8 +47,24 @@ li:hover{
 }
 
 link:hover{
-  text-decoration: $noUnderLine;
-  color:whitesmoke;
+  background-color: #326732;
+  color: whitesmoke;
+  font-weight: bold;
+  padding: 0.8rem;
+}
+
+.buttonStatus{
+  background-color: #024b18;
+  color:#cccccc;
+  font-size: medium;
+  border: 0;
+}
+
+.buttonStatus:hover{
+  background-color: #326732;
+  color: whitesmoke;
+  font-weight: bold;
+  padding: 0.8rem;
 }
 
 .logout{

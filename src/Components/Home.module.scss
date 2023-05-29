@@ -1,11 +1,13 @@
 $roundedCorners: 0.5rem;
-$taskColorSalmon: salmon;
-$taskColorYellow: rgb(238, 226, 60);
-$taskColorGreen: Yellowgreen;
+$taskColorSalmon: rgb(238, 193, 188);
+$taskColorYellow: rgb(250, 246, 193);
+$taskColorGreen: rgb(219, 243, 170);
+
 
 .mainContainer{
   display: flex; 
   height: 50rem;
+  width: 100%;
   background-color: white;
 }
 
@@ -25,15 +27,19 @@ $taskColorGreen: Yellowgreen;
 }
 
 .content{
-  width: 100%;
+  width: 90%;
   height: 43rem;
 }
 
 .header{
-  //border: 1px solid black;
+  display: flex;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: $roundedCorners;
-  padding: 0.5rem;
+  padding: 0.3rem;
+}
+
+.header > div{
+  width: 100%;
 }
 
 h2,h3{
@@ -45,12 +51,19 @@ h3{
   color:grey;
 }
 
+.taskHeader{
+  margin: 1rem 0rem;
+  //padding: 2rem;
+  cursor: pointer;
+}
+
 .taskContent{
   //border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  height: 43rem;
+  height: 44rem;
   border-radius: $roundedCorners;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   word-wrap: break-word;
 }
 
@@ -68,11 +81,9 @@ h3{
 
 .tasks{
   display:flex;
-  //border: 1px solid rgba(190, 192, 188, 0.842);
-  background-color: rgba(245, 245, 245, 0.822);
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
 }
 
 .tasks:hover{
@@ -80,24 +91,32 @@ h3{
 }
 
 .tasks > td{
-  padding: 0.5rem;
+  padding: 0.2rem;
   width: 12rem; 
 }
 
 .taskContainer{
+  table-layout: Fixed;
   width:100%;
   //border: 1px solid red;
 }
 
 .iconsEditDel{
+  margin-top:1rem;
   display: flex;
-  justify-content: flex-end;
-  //width:50%;
-  //border:1px solid black;
+  justify-content: center;
 }
 
-.iconDel,.iconEdit{
-  width: 4rem;
-  //box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border:0px solid gainsboro;
+
+.ProgressBar{
+  width: 20%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.itemsAlignLeft{
+  margin-left: 4rem;
+}
+
+.itemAlignLeftDate{
+  margin-left: 1rem;
 }

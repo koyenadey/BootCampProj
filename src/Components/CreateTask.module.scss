@@ -38,7 +38,7 @@ h1{
 .Desc{
   @extend %font;
 
-  height: 8rem;
+  height: 4rem;
   width: 96%;
   border-radius: $roundedCorners;
   border: $greyBorder;
@@ -53,7 +53,7 @@ h1{
 
   font-size: 1.1rem;
   color:#858181;
-  height: 3rem;
+  height: 2.2rem;
   border-radius: $roundedCorners;
   border: $greyBorder;
   padding: $inputFrontSpace;
@@ -81,7 +81,7 @@ h1{
   
 }
 
-.priorityError{
+.Error{
 
   @extend %font;
 
@@ -90,7 +90,7 @@ h1{
   margin-left: 0.5rem;
 }
 
-.spanPriority{
+.spanError{
   font-size: 1.3rem;
   color: rgb(236, 53, 33);
 }

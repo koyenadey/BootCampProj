@@ -8,17 +8,21 @@ import Logout from './Components/Logout';
 import Home from './Components/Home';
 import ModalPopUp from './Components/Commons/ModalPopUp';
 import './index.scss';
+//import ProgressBar from './Components/ProgressBar';
 
 
 
 function App() {
   const [currentUser,setCurrentUser] = useState({});
 
+  const path = window.location;
+  console.log("In App.js path",path);
+
   useEffect(()=>{
     console.log("In App.js");
     try {
       const jwt = localStorage.getItem('token');
-      //console.log('Printing JWT: ',jwt);
+      
       let user, currentUser;
 
       if(jwt){
@@ -28,14 +32,17 @@ function App() {
           id: user.userId
         };
         setCurrentUser(currentUser);
+        console.log("App.js Current User Id",currentUser.id);
       }  
 
-      console.log("Current User",currentUser.name);
+      console.log("Current User in App.js",currentUser.name);
       
     } catch (error) {
       console.log(error);
     }
-  },[currentUser.id]);
+  },[currentUser.id,path]);
+
+  console.log(currentUser);
 
   return (
   <>

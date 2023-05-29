@@ -1,0 +1,43 @@
+.pagination{
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  background-color: rgb(255, 251, 251);
+  border-radius: 0.3rem;
+  width: 50%;
+  margin-left: 5rem;
+  
+  
+}
+.pagination > li{
+  border: 0.5px solid rgb(202, 197, 197);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  & :hover{
+    
+    transform: translateY(-4px);
+  }
+}
+.pageNumber{
+  font-size: larger;
+}
+.pageNumber:active{
+     background-color: rgb(41, 94, 241);
+     color:white;
+     transform:translateY(4px);
+     
+}
+.pageNumber:focus{
+  background-color: rgb(41, 94, 241);
+  color: white;
+  border:0;
+  outline: 1px solid rgb(17, 70, 214);
+}
+.pageNumber:target{
+  background-color: rgb(41, 94, 241);
+  color: white;
+  border:0;
+  outline: 1px solid rgb(17, 70, 214);
+}
+
+
+

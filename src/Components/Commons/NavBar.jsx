@@ -1,28 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Classes from './NavBar.module.scss';
 import { ImHome } from 'react-icons/im';
 import { IoLogOutSharp } from "react-icons/io5";
 import { RiAddCircleFill } from "react-icons/ri";
+import {BsBookmarkCheckFill} from 'react-icons/bs';
+import {BsThreeDots} from 'react-icons/bs';
+import {MdNotStarted} from 'react-icons/md';
 
 const NavBar = (props) =>{
-  //console.log("NavBar",currUser);
+  const navigate = useNavigate();
+  const status = ["Started","InProgress","Completed"];
   const username = props.currUser;
+  const userId = props.currUserId;
+  console.log("In Nav Bar Current User", userId);
 
   return(
-    <ul>
+    <ul className={Classes.navBarUL}>
       <li>
-        <ImHome size="1rem" color="#cccccc" />
-        <Link to="/" className={Classes.link}>Dashboard</Link>
+          <ImHome size="1rem" color="#cccccc" />
+          <button className={Classes.buttonStatus} onClick={()=>props.onStatusChange(undefined)}>All Tasks</button>
       </li>
       <li>
         <RiAddCircleFill size="1.3rem" color="#cccccc" />
-        <Link className={Classes.link} to="/createtask">Add Tasks</Link>
+        <button className={Classes.link} onClick={()=>navigate("/createtask",{state: {currentUser: userId}})}>Add Tasks</button>
       </li>
-      <li>
-        <ImHome size="1rem" color="#cccccc" />
-        <Link to="/" className={Classes.link}>Expired Tasks</Link>
-      </li>
+      {status.map(s=>{return(
+        <li key={s}>
+          {s==="Started"?<MdNotStarted size="1rem" color="#cccccc" />:s==="In Progress"?<BsThreeDots size="1rem" color="#cccccc" />:<BsBookmarkCheckFill  size="1rem" color="#cccccc" />}
+          <button className={Classes.buttonStatus} onClick={()=>props.onStatusChange(s)}>{s}</button>
+        </li>
+      )})}
+      
       {!username && (<>
       <li>
         <Link className={Classes.link} to="/Login">Login</Link>
